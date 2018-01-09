@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class enemySpawner : MonoBehaviour {
 	public GameObject enemy1;
-	public float maxspawn=5f;
+	public float maxspawn;
 	// Use this for initialization
 	void Start () {
-		Invoke ("spawnEnemy1",maxspawn);
-		InvokeRepeating ("increaseSpawn",0f,30f);
+		
 	}
 	
 	// Update is called once per frame
@@ -20,6 +19,20 @@ public class enemySpawner : MonoBehaviour {
 		Vector2 max = Camera.main.ViewportToWorldPoint (new Vector2(1,1));
 		GameObject en1 = (GameObject)Instantiate (enemy1);
 		en1.transform.position = new Vector2 (Random.Range (min.x, max.x), max.y);
+		GameObject en2 = (GameObject)Instantiate (enemy1);
+		en2.transform.position = new Vector2 (Random.Range (min.x, max.x), max.y);
+		GameObject en3 = (GameObject)Instantiate (enemy1);
+		en3.transform.position = new Vector2 (Random.Range (min.x, max.x), max.y);
+		GameObject en4 = (GameObject)Instantiate (enemy1);
+		en4.transform.position = new Vector2 (Random.Range (min.x, max.x), max.y);
+		GameObject en5 = (GameObject)Instantiate (enemy1);
+		en5.transform.position = new Vector2 (Random.Range (min.x, max.x), max.y);
+		GameObject en6 = (GameObject)Instantiate (enemy1);
+		en6.transform.position = new Vector2 (Random.Range (min.x, max.x), max.y);
+		GameObject en7 = (GameObject)Instantiate (enemy1);
+		en7.transform.position = new Vector2 (Random.Range (min.x, max.x), max.y);
+		GameObject en8 = (GameObject)Instantiate (enemy1);
+		en8.transform.position = new Vector2 (Random.Range (min.x, max.x), max.y);
 		enemyspawntime ();
 	}
 	void enemyspawntime (){
@@ -39,5 +52,15 @@ public class enemySpawner : MonoBehaviour {
 		}
 		if (maxspawn == 1f)
 			CancelInvoke ("increaseSpawn");
+	}
+	public void startSpawner()
+	{
+		Invoke ("spawnEnemy1",maxspawn);
+		InvokeRepeating ("increaseSpawn",0f,30f);
+	}
+	public void stopSpawner()
+	{
+		CancelInvoke ("spawnEnemy1");
+		CancelInvoke ("increaseSpawn");
 	}
 }

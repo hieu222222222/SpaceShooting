@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemy1Controller : MonoBehaviour {
 	public float speed;
+	public GameObject explosion;
+	public Text LifeScore;
+	const int scoredefault = 0;
+	int score;
 	// Use this for initialization
 	void Start () {
 		speed = 2f;
@@ -19,5 +24,17 @@ public class enemy1Controller : MonoBehaviour {
 		{
 			Destroy (gameObject);
 		}
+	}
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.tag=="PlayerShipTag"||col.tag=="PlayerBulletTag")
+		{Explosion ();
+			Destroy(gameObject);
+		}
+	}
+	void Explosion()
+	{
+		GameObject _explosion = (GameObject)Instantiate (explosion);
+		_explosion.transform.position = transform.position;
 	}
 }

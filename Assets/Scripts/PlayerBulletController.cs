@@ -19,4 +19,10 @@ public class PlayerBulletController : MonoBehaviour {
 		if (transform.position.y > max.y)
 			Destroy (gameObject);
 	}
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.tag=="EnemyShipTag")
+		{Destroy(gameObject);
+		}
+	}
 }

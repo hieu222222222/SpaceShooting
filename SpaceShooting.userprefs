@@ -2,10 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\enemySpawner.cs">
     <Files>
-      <File FileName="Assets\Scripts\ShipController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\PlayerBulletController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\enemy1Controller.cs" Line="8" Column="17" />
-      <File FileName="Assets\Scripts\enemySpawner.cs" Line="11" Column="44" />
+      <File FileName="Assets\Scripts\ShipController.cs" Line="21" Column="23" />
+      <File FileName="Assets\Scripts\PlayerBulletController.cs" Line="14" Column="18" />
+      <File FileName="Assets\Scripts\enemy1Controller.cs" Line="7" Column="19" />
+      <File FileName="Assets\Scripts\enemySpawner.cs" Line="22" Column="21" />
+      <File FileName="Assets\Scripts\DestroyController.cs" Line="16" Column="19" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="31" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

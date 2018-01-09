@@ -1,14 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipController : MonoBehaviour {
+	public GameObject Game;
 	public GameObject PlayerBullet;
 	public GameObject PlayerBulletPosition01;
 	public GameObject PlayerBulletPosition02;
 	public GameObject PlayerBulletPosition03;
+	public GameObject explosion;
+	public Text LifePoint;
+	const int playerLife=3;
+	int currentLife;
 	public float _speed;
 	// Use this for initialization
+	public void Init()
+	{
+		currentLife = playerLife;
+		LifePoint.text = playerLife.ToString ();
+
+	}
 	void Start () {
 		
 	}
@@ -44,5 +56,24 @@ public class ShipController : MonoBehaviour {
 		GameObject bullet03 = (GameObject)Instantiate (PlayerBullet);
 		bullet03.transform.position = PlayerBulletPosition03.transform.position;
 		}
+	}
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.tag=="EnemyShipTag"||col.tag=="EnemyBulletTag")
+		{
+			Explosion ();
+			currentLife--;
+			LifePoint.text = currentLife.ToString ();
+
+			if (currentLife == 0) {
+				Game.GetComponent<GameManager> ().SetGameManagerState (GameManager.GameManagerState.gameover);
+				gameObject.SetActive (false);
+			}
+			}
+	}
+	void Explosion()
+	{
+		GameObject _explosion = (GameObject)Instantiate (explosion);
+		_explosion.transform.position = transform.position;
 	}
 }
